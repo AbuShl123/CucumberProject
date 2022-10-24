@@ -12,11 +12,11 @@ public class LibraryLoginPage {
     }
 
     @FindBy (css = "input#inputEmail")
-    WebElement emailInput;
+    public WebElement emailInput;
 
     @FindBy (css = "input#inputPassword")
-    WebElement passInput;
+    public WebElement passInput;
 
     @FindBy (xpath = "//button")
-    WebElement loginSubmitButton;
+    public WebElement loginSubmitButton;
 }

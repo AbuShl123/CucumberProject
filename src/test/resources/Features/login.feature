@@ -9,5 +9,4 @@ Feature: Library app Login Feature
     Given user is on the library login page
     When user enters librarian username
     And user enters librarian password
-    Then user successfully logins the app
-    And dashboard is displayed
+    Then user should see dashboard
