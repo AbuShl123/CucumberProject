@@ -2,6 +2,7 @@ package com.abu.step_definitions;
 
 import com.abu.pages.LibraryLoginPage;
 import com.abu.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +19,7 @@ public class Login_StepDef {
     @When("user enters librarian username")
     public void user_enters_librarian_username() {
         // Write code here that turns the phrase above into concrete actions
-        libraryLoginPage.emailInput.sendKeys("hr2@cydeo.com");
+        libraryLoginPage.emailInput.sendKeys("hr2@gmail.com");
     }
     @When("user enters librarian password")
     public void user_enters_librarian_password() {
@@ -31,5 +32,13 @@ public class Login_StepDef {
         libraryLoginPage.loginSubmitButton.click();
     }
 
+    @When("user enters student's username")
+    public void userEntersStudentSUsername() {
+        libraryLoginPage.emailInput.sendKeys("student@gmail.com");
+    }
 
+    @And("user enters student's password")
+    public void userEntersStudentSPassword() {
+        libraryLoginPage.passInput.sendKeys("studentPassword123");
+    }
 }
