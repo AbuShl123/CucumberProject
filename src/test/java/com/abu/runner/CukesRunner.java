@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/Features", // features mean -> location of 'Features' folder
         glue = "com/abu/step_definitions", // glue means -> step definitions
-        tags = "@librarian or @student"
+        tags = "@wip"
 )
 
 
