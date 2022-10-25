@@ -1,4 +1,4 @@
-# if to put @smoke annotation under feature -> all TCs will be for smoke
+# if to put @smoke annotation above feature -> all TCs will be for smoke
 @Regression # all for regression
 Feature: Library app Login Feature
   User Story:
@@ -7,16 +7,23 @@ Feature: Library app Login Feature
 
   Accounts here: librarian, student, admin
 
-  @smoke @regression
+  @smoke @librarian @employee
   Scenario: Login as a librarian
     Given user is on the library login page
     When user enters librarian username
     And user enters librarian password
     Then user should see dashboard
 
-  @regression
+  @student
   Scenario: Login as a Student
     Given user is on the library login page
     When user enters student's username
     And user enters student's password
+    Then user should see dashboard
+
+   @admin @employee
+  Scenario: Login as an Admin
+    Given user is on the library login page
+    When user enters admin username
+    And user enters admin password
     Then user should see dashboard

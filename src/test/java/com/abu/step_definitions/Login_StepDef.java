@@ -16,16 +16,19 @@ public class Login_StepDef {
         // Write code here that turns the phrase above into concrete actions
         Driver.getDriver().navigate().to("https://library1.cydeo.com/login.html");
     }
+
     @When("user enters librarian username")
     public void user_enters_librarian_username() {
         // Write code here that turns the phrase above into concrete actions
         libraryLoginPage.emailInput.sendKeys("hr2@gmail.com");
     }
+
     @When("user enters librarian password")
     public void user_enters_librarian_password() {
         // Write code here that turns the phrase above into concrete actions
         libraryLoginPage.passInput.sendKeys("UserUser");
     }
+
     @Then("user should see dashboard")
     public void user_should_see_dashboard() {
         // Write code here that turns the phrase above into concrete actions
@@ -40,5 +43,15 @@ public class Login_StepDef {
     @And("user enters student's password")
     public void userEntersStudentSPassword() {
         libraryLoginPage.passInput.sendKeys("studentPassword123");
+    }
+
+    @When("user enters admin username")
+    public void userEntersAdminUsername() {
+        libraryLoginPage.emailInput.sendKeys("adminUser@gmail.com");
+    }
+
+    @And("user enters admin password")
+    public void userEntersAdminPassword() {
+        libraryLoginPage.passInput.sendKeys("admin01Password**");
     }
 }
