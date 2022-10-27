@@ -10,10 +10,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features", // features mean -> location of 'Features' folder
         glue = "com/abu/step_definitions", // glue means -> step definitions
         dryRun = false,
-        tags = "@wip"
+        tags = "@regression"
 )
 
 
-public class CukesRunner {
-
-}
+public class CukesRunner { }
