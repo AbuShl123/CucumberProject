@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/Features", // features mean -> location of 'Features' folder
         glue = "com/abu/step_definitions", // glue means -> step definitions
         dryRun = false,

@@ -10,5 +10,5 @@ Feature: Google Search Feature
   @wip
   Scenario: Search Functionality result title verification
     Given user is on google search page
-    When user types "apple" in the google search box and clicks on enter
-    Then user sees "apple - Поиск в Google" is in the google title
+    When user types "anime" in the google search box and clicks on enter
+    Then user sees "anime - Поиск в Google" is in the google title
