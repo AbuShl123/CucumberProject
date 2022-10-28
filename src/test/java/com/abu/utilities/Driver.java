@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-public class Driver {
+public final class Driver {
     private static WebDriver webDriver;
 
     private Driver() {}

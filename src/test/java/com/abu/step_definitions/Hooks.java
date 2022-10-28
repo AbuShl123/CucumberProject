@@ -1,13 +1,12 @@
 package com.abu.step_definitions;
 
 import com.abu.utilities.Driver;
+import com.abu.utilities.BrowserUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
-import java.util.Arrays;
 
 public class Hooks {
     @Before
@@ -21,6 +20,8 @@ public class Hooks {
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
+
+        BrowserUtils.sleep(1);
         Driver.closeDriver();
     }
 }
