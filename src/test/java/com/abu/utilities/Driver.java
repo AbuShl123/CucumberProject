@@ -3,6 +3,7 @@ package com.abu.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public final class Driver {
@@ -15,8 +16,11 @@ public final class Driver {
             String browser = ConfigurationReader.getProperty("browser");
             switch (browser) {
                 case "chrome":
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--incognito");
+                    options.addArguments("lang=en-GB");
                     WebDriverManager.chromedriver().setup();
-                    webDriver = new ChromeDriver();
+                    webDriver = new ChromeDriver(options);
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
@@ -30,6 +34,9 @@ public final class Driver {
     }
 
     public static void closeDriver(){
-        webDriver.close();
+        if (webDriver != null) {
+            webDriver.close();
+            webDriver = null;
+        }
     }
 }
