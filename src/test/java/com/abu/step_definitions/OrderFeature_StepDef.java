@@ -11,6 +11,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class OrderFeature_StepDef {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
     OrderPage orderPage = new OrderPage();
@@ -24,10 +26,14 @@ public class OrderFeature_StepDef {
         orderPage.orderPageButton.click();
     }
 
-    @When("user selects product type {string} And user enters quantity {int}")
-    public void user_selects_product_type_and_user_enters_quantity(String string, Integer int1) {
+    @When("user selects product type {string}")
+    public void user_selects_product_type(String string) {
         Select productTypes = new Select(orderPage.selectProductType);
         productTypes.selectByValue(string);
+    }
+
+    @When("user enters quantity {int}")
+    public void user_enters_quantity(int int1) {
         orderPage.quantityButton.sendKeys(String.valueOf(int1));
     }
 

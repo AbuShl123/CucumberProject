@@ -49,7 +49,7 @@ public class OrderPage {
     @FindBy (css = "button[type='submit']")
     public WebElement processOrderButton;
 
-    @FindBy (xpath = "(//table//td[1])[1]")
+    @FindBy (xpath = "//table//tr[1]/td[1]")
     public WebElement firstRow;
 }
 

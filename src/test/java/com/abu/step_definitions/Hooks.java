@@ -22,6 +22,6 @@ public class Hooks {
         }
         BrowserUtils.sleep(1);
 
-        if (!scenario.isFailed()) Driver.closeDriver();
+        Driver.closeDriver();
     }
 }
