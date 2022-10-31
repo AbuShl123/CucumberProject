@@ -42,4 +42,15 @@ public class WebTableLogin_StepDef {
 
         Assert.assertTrue(url.contains(string));
     }
+
+    @When("user inputs username {string} and password {string} and logins")
+    public void userInputsUsernameAndPasswordAndLogins(String username, String password) {
+//        webTableLoginPage.usernameInput.sendKeys(username);
+//        webTableLoginPage.passwordInput.sendKeys(password);
+//        webTableLoginPage.submitButton.click();
+
+        webTableLoginPage.login(username, password);
+    }
+
+
 }

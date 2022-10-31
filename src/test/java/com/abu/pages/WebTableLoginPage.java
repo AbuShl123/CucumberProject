@@ -18,5 +18,12 @@ public class WebTableLoginPage {
 
     @FindBy (tagName = "button")
     public WebElement submitButton;
+
+
+    public void login(String username, String password){
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        submitButton.click();
+    }
 }
 
