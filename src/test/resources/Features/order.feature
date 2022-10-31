@@ -38,10 +38,10 @@ Feature: Web table user order feature
       | productType | quantity | customerName   | street            | city   | state      | zipcode | creditCard       | cardNum      | expiryDate |
       | Familybea   | 2        | Elizabeth II   | Buckingham Palace | London | England    | 1021    | MasterCard       | 232911223324 | 12/23      |
       | Familybea   | 2        | Einstein       | Buckingham Palace | London | England    | 1022    | MasterCard       | 323911223324 | 02/03      |
-      | Familybea   | 1        | Mozart Amadeus | Central street    | Vienna | Austria    | 1023    | Visa             | 999088123144 | 06/23      |
+      | Familybea   | 1        | Mozart Amadeus | Central street    | Vienna | Austria    | 1023    | Visa             | 599088123144 | 06/23      |
       | Screenable  | 4        | Abu Shl        | central street    | Vienna | Austria    | 1001    | American Express | 999123213124 | 80/13      |
       | MoneyCog    | 5        | Eren           | small street      | Shi    | Maria Wall | 099     | Visa             | 111100222324 | 07/13      |
-      | MoneyCog    | 5        | Mikasa         | small street      | Shi    | Maria Wall | 099     | Visa             | 388827311234 | 07/13      |
+      | MoneyCog    | 5        | Mikasa         | small street      | Shi    | Maria Wall | 099     | Visa             | 588827311234 | 07/13      |
 
     Examples: Females only
       | productType | quantity | customerName | street            | city   | state      | zipcode | creditCard | cardNum      | expiryDate |
@@ -51,6 +51,6 @@ Feature: Web table user order feature
     Examples: Males only
       | productType | quantity | customerName   | street            | city   | state      | zipcode | creditCard       | cardNum      | expiryDate |
       | Familybea   | 2        | Einstein       | Buckingham Palace | London | England    | 1022    | MasterCard       | 754911223324 | 02/03      |
-      | Familybea   | 1        | Mozart Amadeus | Central street    | Vienna | Austria    | 1023    | Visa             | 999088123144 | 06/23      |
+      | Familybea   | 1        | Mozart Amadeus | Central street    | Vienna | Austria    | 1023    | Visa             | 599088123144 | 06/23      |
       | Screenable  | 4        | Abu Shl        | central street    | Vienna | Austria    | 1001    | American Express | 999123213124 | 80/13      |
       | MoneyCog    | 5        | Eren           | small street      | Shi    | Maria Wall | 099     | Visa             | 111100222324 | 07/13      |
