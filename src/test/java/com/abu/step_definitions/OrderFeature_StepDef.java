@@ -2,6 +2,7 @@ package com.abu.step_definitions;
 
 import com.abu.pages.OrderPage;
 import com.abu.pages.WebTableLoginPage;
+import com.abu.utilities.ConfigurationReader;
 import com.abu.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,8 +17,10 @@ public class OrderFeature_StepDef {
 
     @Given("user is already logged in and on order page")
     public void user_is_already_logged_in_and_on_order_page() {
-        Driver.getDriver().navigate().to("https://web-table-2.cydeo.com/login");
-        webTableLoginPage.login("Test", "Tester");
+        Driver.getDriver().navigate().to(ConfigurationReader.getProperty("web"));
+        webTableLoginPage.login(ConfigurationReader.getProperty("username"),
+                                ConfigurationReader.getProperty("password"));
+
         orderPage.orderPageButton.click();
     }
 
