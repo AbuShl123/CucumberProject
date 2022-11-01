@@ -7,12 +7,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public final class Driver {
-    private static WebDriver webDriver;
+
+    private static final InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     private Driver() {}
 
     public static WebDriver getDriver() {
-        if (webDriver == null) {
+        if (driverPool.get() == null) {
             String browser = ConfigurationReader.getProperty("browser");
             switch (browser) {
                 case "chrome":
@@ -20,23 +21,23 @@ public final class Driver {
                     options.addArguments("--incognito");
                     options.addArguments("lang=en-GB");
                     WebDriverManager.chromedriver().setup();
-                    webDriver = new ChromeDriver(options);
+                    driverPool.set(new ChromeDriver(options));
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    webDriver = new EdgeDriver();
+                    driverPool.set(new EdgeDriver());
                     break;
             }
-            webDriver.manage().window().maximize();
+            driverPool.get().manage().window().maximize();
         }
 
-        return webDriver;
+        return driverPool.get();
     }
 
     public static void closeDriver(){
-        if (webDriver != null) {
-            webDriver.close();
-            webDriver = null;
+        if (driverPool.get() != null) {
+            driverPool.get().quit();
+            driverPool.remove();
         }
     }
 }
