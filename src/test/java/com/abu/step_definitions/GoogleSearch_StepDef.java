@@ -23,7 +23,7 @@ public class GoogleSearch_StepDef {
 
     @Then("user sees apple - Google Search is in the google title")
     public void user_sees_apple_google_search_is_in_the_google_title() {
-        assertEquals("title verification is failed", "apple - Поиск в Google", Driver.getDriver().getTitle());
+        assertEquals("title verification is failed", "apple - Google Search", Driver.getDriver().getTitle());
     }
 
     @When("user types {string} in the google search box and clicks on enter")
