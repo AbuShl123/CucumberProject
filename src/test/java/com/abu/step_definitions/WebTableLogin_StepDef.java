@@ -7,6 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class WebTableLogin_StepDef {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
 
@@ -51,6 +53,4 @@ public class WebTableLogin_StepDef {
 
         webTableLoginPage.login(username, password);
     }
-
-
 }

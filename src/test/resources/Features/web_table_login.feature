@@ -12,12 +12,12 @@ Feature: user should be able to login with valid credentials
     When user inputs username "Test" and password "Tester" and logins
     Then user should see url contains "orders"
 
-  Scenario: user enters below credentials
-    Given user is on the Web Table login page
-    When user enters below credentials
-    Then user should see url contains "orders"
-      | username | password |
-      | Test     | Tester   |
-      | user     | password |
+#  Scenario: user enters below credentials
+#    Given user is on the Web Table login page
+#    When user enters below credentials
+#      | username | password |
+#      | Test     | Tester   |
+#      | user     | password |
+#    Then user should see url contains "orders"
 
 

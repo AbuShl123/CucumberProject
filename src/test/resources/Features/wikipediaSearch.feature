@@ -5,7 +5,7 @@ Feature: Wikipedia search functionality and verification
     Given user is on Wikipedia home page
     When user types "Steve Jobs" in the wiki search box
     And user clicks wiki search button
-    Then user sees "Steve jobs" is in the wiki title
+    Then user sees "Steve Jobs" is in the wiki title
 
   Scenario Outline:
     Given user is on Wikipedia home page
