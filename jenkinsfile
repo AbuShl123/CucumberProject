@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "M3"
+    }
+
+    parameters {
+        booleanParam(
+            name: 'executeSmoke',
+            defaultValue: false,
+            description: 'if you want to execute only smoke tests, set value to true'
+        )
+
+        booleanParam(
+            name: 'executeRegression',
+            defaultValue: false,
+            description: 'if you want to execute regression tests, set value to true'
+        )
+    }
+
+    stages {
+        stage ('Setting Up') {
+            steps {
+                git 'https://github.com/AbuShl123/CucumberProject'
+            }
+        }
+
+        stage('Smoke Test') {
+            when {
+                expression {
+                    params.executeSmoke // this means, that if value of this param is true, then the below stage will run
+                }
+            }
+            steps {
+                bat 'mvn -Dcucumber.filter.tags=@smoke clean package'
+            }
+        }
+
+        stage('Regression Test') {
+            when {
+                expression {
+                    params.executeSmoke && params.executeRegression
+                }
+            }
+
+            steps {
+                bat 'mvn -Dcucumber.filter.tags=@regression clean package'
+            }
+        }
+    }
+
+    post {
+        always {
+            cucumber buildStatus: 'UNSTABLE',
+            fileIncludePattern: '**/cucumber.json',
+            jsonReportDirectory: 'target'
+        }
+        success {
+            echo 'TESTS SUCCEED!'
+            junit '**/target/surefire-reports/TEST-*.xml'
+            archiveArtifacts 'target/*.jar'
+        }
+    }
+}
