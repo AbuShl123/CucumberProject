@@ -33,6 +33,7 @@ public class GoogleSearch_StepDef {
 
     @Then("user sees {string} is in the google title")
     public void user_sees_is_in_the_google_title(String string) {
-        assertEquals("title verification is failed", string, Driver.getDriver().getTitle());
+        String actualTitle = Driver.getDriver().getTitle();
+        assertEquals("title verification is failed: " + actualTitle, string, actualTitle);
     }
 }
