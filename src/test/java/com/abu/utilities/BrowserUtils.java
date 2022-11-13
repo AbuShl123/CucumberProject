@@ -102,7 +102,7 @@ public final class BrowserUtils {
 
 
     /**
-     * This method will accept a String as expected value and verify actual URL CONTAINS the value.
+     * This method will accept a String as expected value and verify actual _URL CONTAINS the value.
      * @param expectedInURL
      */
     public static void verifyURLContains(String expectedInURL){
@@ -125,7 +125,7 @@ public final class BrowserUtils {
 
             Driver.getDriver().switchTo().window(each);
 
-            System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
+            System.out.println("Current _URL: " + Driver.getDriver().getCurrentUrl());
 
             if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
                 break;
