@@ -17,6 +17,12 @@ pipeline {
             defaultValue: false,
             description: 'if you want to execute regression tests, set value to true'
         )
+
+        booleanParam(
+            name: 'seleniumGrid',
+            defaultValue: false,
+            description: 'executes test scripts in Selenium Grid'
+        )
     }
 
     stages {
@@ -26,10 +32,22 @@ pipeline {
             }
         }
 
+        stage ('Smoke Test on SeleniumGrid') {
+            when {
+                expression {
+                    params.executeSmoke && params.seleniumGrid
+                }
+            }
+            steps {
+                bat 'mvn -Dcucumber.filter.tags=@smoke -DBROWSER=remote-chrome clean package'
+            }
+        }
+
         stage('Smoke Test') {
             when {
                 expression {
-                    params.executeSmoke // this means, that if value of this param is true, then the below stage will run
+                    params.executeSmoke && !params.seleniumGrid
+                     // this means, that if value of this param is true, then the below stage will run
                 }
             }
             steps {

@@ -9,8 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.io.IOException;
-
 public final class Driver extends DriverBase{
 
     private static final InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
