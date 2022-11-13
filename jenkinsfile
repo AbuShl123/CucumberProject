@@ -55,10 +55,21 @@ pipeline {
             }
         }
 
+        stage('regression test on SeleniumGrid') {
+            when {
+                expression {
+                    params.executeSmoke && params.executeRegression && params.seleniumGrid
+                }
+            }
+            steps {
+                bat 'mvn -Dcucumber.filter.tags=@regression -DBROWSER=remote-chrome clean package'
+            }
+        }
+
         stage('Regression Test') {
             when {
                 expression {
-                    params.executeSmoke && params.executeRegression
+                    params.executeSmoke && params.executeRegression && !params.seleniumGrid
                 }
             }
 
