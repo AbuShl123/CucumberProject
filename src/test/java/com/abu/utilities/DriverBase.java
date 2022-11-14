@@ -41,7 +41,7 @@ public abstract class DriverBase {
     }
 
     static {
-        URL temporal = null;
+        URL temporal;
         try {
             temporal = new URL("http://192.168.100.71:4444");
         } catch (MalformedURLException e) {

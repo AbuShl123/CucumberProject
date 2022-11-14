@@ -26,7 +26,7 @@ public final class Driver extends DriverBase{
                     break;
                 case "remote-chrome":
                     desiredCapabilities.setBrowserName("chrome");
-                    desiredCapabilities.setPlatform(Platform.WIN10);
+                    desiredCapabilities.setPlatform(Platform.MAC);
                     desiredCapabilities.merge(OPTIONS);
                     driverPool.set(new RemoteWebDriver(_URL, desiredCapabilities));
                     break;
